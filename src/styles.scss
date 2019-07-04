@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.btn{
+    margin: 5px;  
+}
+
+.active{
+    background :#eee;  
+}
+
+li .selected{
+  background: #cfd8dc;
+  color: #fff;
+}
