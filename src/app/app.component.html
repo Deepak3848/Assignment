@@ -18,9 +18,8 @@
     <h3 class="text-center">{{title}}</h3>
   </div>
 </nav>
-<div class="container" *ngIf="homePage">
-  
-   <button type="button" class="btn btn-primary" routerLink="/**" routerLinkActive="active">Page not faound</button>
-  <button type="button" class="btn btn-primary" routerLink="/employees" routerLinkActive="active" (click)="hideEmplyeeButton()">Show Employee List</button>   
+<div class="container" *ngIf="homePage">  
+   <button type="button" class="btn btn-primary" routerLink="/**" routerLinkActive="active"  (click)="hideEmplyeeButton()">Page not faound</button>
+   <button type="button" class="btn btn-primary" routerLink="/employees" routerLinkActive="active" (click)="hideEmplyeeButton()">Show Employee List</button>   
 </div>
 <router-outlet></router-outlet>

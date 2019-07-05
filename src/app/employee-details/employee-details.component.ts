@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -10,19 +11,19 @@ export class EmployeeDetailsComponent implements OnInit {
   public employeeId;
   public prevId;
   public nextId;
+  public selectedId;
+  public employee = {};
   constructor(private route : ActivatedRoute, private router : Router) { }
   
-  ngOnInit() {
-    //let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.route.paramMap.subscribe((params :ParamMap) =>{
-      let id = parseInt(params.get('id'));
-        this.employeeId = id;
-    })
-    
-  
+  ngOnInit() {   
+    this.route.queryParams.subscribe((param) =>{
+      this.employee = param;
+        // this._employeeService.getEmployees()
+        // .subscribe(data => this.employees = data);
+    });
   }
 
-  goPrev(){
+  /*goPrev(){
     this.prevId = this.employeeId - 1;
     this.router.navigate(['employee-details' , this.prevId]);
   }
@@ -30,11 +31,13 @@ export class EmployeeDetailsComponent implements OnInit {
   goNext(){
     this.nextId = this.employeeId + 1;
     this.router.navigate(['employee-details' , this.nextId]);
-  }
-
+  }*/
+  
   goBack(){
     let selectedId = this.employeeId ? this.employeeId :null;
     this.router.navigate(['employees' , {id: selectedId}])
   }
+
+ 
 
 }

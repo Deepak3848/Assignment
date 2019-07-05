@@ -1,6 +1,6 @@
 <div class="container">
       <ul *ngFor="let employee of employees"  class="list-group">
-          <li (click)="onSelect(employee)" class="list-group-item" [class.selected]="isSelected(employee)">
+          <li (click)="onSelect(employee)" class="list-group-item" >
           <a>{{employee.name}}</a>
           </li>
       </ul> 
