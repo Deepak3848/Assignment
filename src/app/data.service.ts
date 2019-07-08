@@ -1,4 +1,4 @@
-  import { Injectable } from '@angular/core';
+  import { Injectable, Output, EventEmitter } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -7,6 +7,13 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
   private messageSource = new BehaviorSubject ('Employee List');
   currentMessage = this.messageSource.asObservable();
+
+  @Output() change: EventEmitter<boolean> = new EventEmitter();
+
+  updateTitle(title) {
+    this.change.emit(title);
+  }
+
   constructor() { }
 
   changeMessage(message: string) {

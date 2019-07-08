@@ -6,13 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title :string = 'Home';
-  public homePage:boolean = true;
-
-  hideEmplyeeButton(){
-   this.homePage = false;  
-   this.title = "Employee List";
-  }
+  public homePage:boolean = true;  
   
 }
 

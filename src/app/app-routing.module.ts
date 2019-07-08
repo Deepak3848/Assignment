@@ -9,8 +9,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FlipToresumeComponent } from './flip-toresume/flip-toresume.component';
 
 const routes: Routes = [  
-  // { path : '' , component : HomeComponent},
-  { path : '' , component : LandingPageComponent},
+  { path : '' , component : HomeComponent},
+  // { path : '' , component : LandingPageComponent},
   {path : 'employees' , component : EmployeeListComponent},
   {path : 'department' , component : DepartmentListComponent},
   {path : 'employee-details' , component : EmployeeDetailsComponent},

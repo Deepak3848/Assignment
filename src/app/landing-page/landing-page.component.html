@@ -1,10 +1,5 @@
 <nav class="navbar navbar-default">
         <div class="container">
-          <h3 class="text-center" (childEvent)="title=$event">Home</h3>
+          <h3 class="text-center">{{isOpen}}</h3>
         </div>
 </nav>
-
-<div class="container" *ngIf="homePage">  
-        <button type="button" class="btn btn-primary" routerLink="/**" routerLinkActive="active"  (click)="hideEmplyeeButton()">Page not faound</button>
-        <button type="button" class="btn btn-primary" routerLink="/employees" routerLinkActive="active" (click)="hideEmplyeeButton()">Show Employee List</button>   
-</div>

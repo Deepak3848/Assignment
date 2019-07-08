@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,18 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+  
+  @HostBinding('class.is-open')
+  isOpen = 'Home';  
 
-  constructor() { }
+  constructor(
+    private dataService: DataService
+  ) { }
+
+  ngOnInit() {
+    this.dataService.change.subscribe(title => {
+      console.log(title);
+      this.isOpen = title;
+    });
+  }
 
   title :string = 'Home';
   public homePage:boolean = true;
 
-  hideEmplyeeButton(){
-   this.homePage = false;  
-   this.title = "Employee List";
-  }
-
-  ngOnInit() {
-  }
+  // hideEmplyeeButton(){
+  //  this.homePage = false;  
+  //  this.title = "Employee List";
+  // }
 
 }
