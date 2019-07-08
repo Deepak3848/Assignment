@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { Router, ActivatedRoute,ParamMap, NavigationExtras } from '@angular/router';
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -9,11 +10,9 @@ import { Router, ActivatedRoute,ParamMap, NavigationExtras } from '@angular/rout
 export class EmployeeListComponent implements OnInit {
   public employees = [];
   public selectedId;
+  constructor(private _employeeService : EmployeeService, private router : Router, private route : ActivatedRoute, private data: DataService) { }
 
-  @Output() public emolyeeHeading = new EventEmitter;
-  constructor( private _employeeService : EmployeeService, private router : Router, private route : ActivatedRoute) { }
-
-  ngOnInit() {
+  ngOnInit() {    
      this._employeeService.getEmployees()
          .subscribe(data => this.employees = data);
          this.route.paramMap.subscribe((params :ParamMap) =>{
@@ -29,7 +28,6 @@ export class EmployeeListComponent implements OnInit {
     };     
     this.router.navigate(['/employee-details'], navigationExtras);
   }
-
 
   //for selected id
   isSelected(employee){

@@ -17,7 +17,7 @@ export class EmployeeDetailsComponent implements OnInit {
   
   ngOnInit() {   
     this.route.queryParams.subscribe((param) =>{
-      this.employee = param;
+      this.employee = JSON.parse(JSON.stringify(param));
         // this._employeeService.getEmployees()
         // .subscribe(data => this.employees = data);
     });

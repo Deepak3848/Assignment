@@ -10,8 +10,8 @@ export class AppComponent {
   public homePage:boolean = true;
 
   hideEmplyeeButton(){
-    this.homePage = false;  
-    this.title = "Employee List";
+   this.homePage = false;  
+   this.title = "Employee List";
   }
   
 }

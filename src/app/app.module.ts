@@ -9,6 +9,9 @@ import { EmployeeService } from './employee.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from  '@angular/common/http';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { DataService } from './data.service';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+//import { FlipToresumeComponent } from './flip-toresume/flip-toresume.component';
 //import { DepartmentListComponent } from './department-list/department-list.component';
  
 
@@ -19,6 +22,8 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
     HomeComponent,
     PageNotFoundComponent,
     EmployeeDetailsComponent,
+    LandingPageComponent,
+    //FlipToresumeComponent,
     //DepartmentListComponent
      //EmployeeListComponent,
   ],
@@ -27,7 +32,7 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
     AppRoutingModule,
     HttpClientModule    
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
