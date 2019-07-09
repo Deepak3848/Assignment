@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { Component, OnInit, Input , HostListener} from '@angular/core';
+import { ActivatedRoute, Router, ParamMap, NavigationExtras } from '@angular/router';
 import { EmployeeService } from '../employee.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -12,15 +13,35 @@ export class EmployeeDetailsComponent implements OnInit {
   public prevId;
   public nextId;
   public selectedId;
-  public employee = {};
-  constructor(private route : ActivatedRoute, private router : Router) { }
-  
-  ngOnInit() {   
+  public employee = {}; 
+  public name: any;
+  constructor(private route : ActivatedRoute, private router : Router, private dataService : DataService) { }
+   
+  @HostListener('click')
+  click(title) {
+    console.log('click');
+    this.dataService.updateTitle(title);
+  }
+
+  ngOnInit() {     
     this.route.queryParams.subscribe((param) =>{
       this.employee = JSON.parse(JSON.stringify(param));
         // this._employeeService.getEmployees()
         // .subscribe(data => this.employees = data);
     });
+
+    
+
+    let eName = this.employee.name;
+    this.click('Employee Details of' + " " + eName);
+  }
+
+  fliptoresume(employee){
+    let navigationExtras: NavigationExtras = { 
+      queryParams: employee,
+      skipLocationChange: true
+    };     
+    this.router.navigate(['/fliptoresume'], navigationExtras);
   }
 
   /*goPrev(){
