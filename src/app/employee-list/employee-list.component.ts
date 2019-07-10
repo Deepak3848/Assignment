@@ -12,14 +12,14 @@ export class EmployeeListComponent implements OnInit {
   public selectedId;
   constructor(private _employeeService : EmployeeService, private router : Router, private route : ActivatedRoute, private dataService: DataService) { }
 
-  @HostListener('click')
-  click(title) {
+  @HostListener('keydown')
+  keydown(title) {
     console.log('click');
     this.dataService.updateTitle(title);
   }
   
   ngOnInit() {    
-    this.click('Employee List');
+    this.keydown('Employee List');
      this._employeeService.getEmployees()
          .subscribe(data => this.employees = data);
          this.route.paramMap.subscribe((params :ParamMap) =>{
@@ -29,7 +29,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   onSelect(employee){
-    this.click('Employee Details');
+    this.keydown('Employee Details');
     let navigationExtras: NavigationExtras = { 
       queryParams: employee,
       skipLocationChange: true

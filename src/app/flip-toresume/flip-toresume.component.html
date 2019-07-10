@@ -1,3 +1,25 @@
-<h1>Flip</h1>
+<div class="container">
+        <my-tabs>
+                <my-tab [tabTitle]="'Info'">
+                  Information of {{employee.name}}.
+                </my-tab>
 
-<button type="button" class="btn btn-priamry" (click)="goBack()">Go Back</button>
+                <my-tab tabTitle="Projects">
+                 Projects of {{employee.name}}.
+                </my-tab>
+
+                 <my-tab tabTitle="Hobbies">
+                 Hobbies of {{employee.name}}.
+                </my-tab>
+
+                <my-tab tabTitle="Notes">
+                 Notes of {{employee.name}}.
+                </my-tab>
+              </my-tabs>
+        
+        <button type="button" class="btn btn-primary" (click)="goBack()">Go Back</button>
+       
+</div>
+
+
+
