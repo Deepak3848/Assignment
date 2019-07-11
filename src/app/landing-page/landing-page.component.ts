@@ -11,9 +11,7 @@ export class LandingPageComponent implements OnInit {
   @HostBinding('class.is-open')
   isOpen = 'Home';  
 
-  constructor(
-    private dataService: DataService
-  ) { }
+  constructor( private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.change.subscribe(title => {
@@ -24,10 +22,4 @@ export class LandingPageComponent implements OnInit {
 
   title :string = 'Home';
   public homePage:boolean = true;
-
-  // hideEmplyeeButton(){
-  //  this.homePage = false;  
-  //  this.title = "Employee List";
-  // }
-
 }
